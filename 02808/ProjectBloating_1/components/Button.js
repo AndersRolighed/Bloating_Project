@@ -28,7 +28,16 @@ export default function Button({ label, theme, onPress, placeholderImage}) {
           </TouchableOpacity>
         </View>
       );
-  } else {
+
+    } else if (theme === "FoodBreakfast") {
+      return (
+          <View style={BreakfastStyle.container}>
+            <TouchableOpacity style={BreakfastStyle.button} onPress={onPress}>
+              {placeholderImage && <Image source={placeholderImage} style={BreakfastStyle.placeholderImage} />}
+            </TouchableOpacity>
+          </View>
+        );
+    } else {
 
   return (
     <View style={styles.buttonContainer}>
@@ -72,6 +81,34 @@ const buttonStyles = StyleSheet.create({
       justifyContent: 'center',
       position: 'absolute',
       top: '15%', // Adjust the vertical position as needed
+      left: 0,
+      right: 0,
+    },
+    button: {
+      width: 150, // Adjust the width of the button
+      height: 150, // Adjust the height of the button
+      borderRadius: 75, // Make the button round by setting borderRadius to half of the width/height
+      backgroundColor: 'blue', // Change the background color of the button
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    buttonText: {
+      color: 'white', // Change the color of the button text
+      fontSize: 16, // Adjust the font size of the button text
+    },
+    placeholderImage: {
+      width: 100, // Adjust the width of the placeholder image
+      height: 100, // Adjust the height of the placeholder image
+      resizeMode: 'contain', // Adjust the resize mode of the image
+    },
+  });
+
+  const BreakfastStyle = StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'absolute',
+      top: '5%', // Adjust the vertical position as needed
       left: 0,
       right: 0,
     },
